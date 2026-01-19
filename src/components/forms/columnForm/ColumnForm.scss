@@ -1,0 +1,45 @@
+.ColumnForm {
+  @include flexColumn;
+  gap: 1rem;
+
+  &__input-wrpr {
+    @include flexColumn;
+    gap: 0.25rem;
+  }
+
+  &__color {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  &__color-label {
+    @include fontRegularInter(0.875rem, 1rem);
+    color: $text-secondary;
+  }
+
+  &__color-picker {
+    position: relative;
+    width: 2rem;
+    height: 2rem;
+  }
+
+  &__color-native {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    cursor: pointer;
+  }
+
+  &__color-preview {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 1px solid $border-primary;
+  }
+
+  &__error {
+    color: $text-danger;
+    @include fontRegularInter(0.75rem, 1rem);
+  }
+}

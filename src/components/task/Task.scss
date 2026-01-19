@@ -1,0 +1,51 @@
+.Task {
+  @include flexColumn;
+  padding: 0.25rem 0.5rem;
+  border-radius: 10px;
+  border: 1px solid $border-primary;
+  background-color: $bg-primary;
+  cursor: pointer;
+
+  &:hover {
+    .Task__actions {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+  }
+
+  &--selected,
+  &:hover {
+    background-color: #e9f1fe;
+    border: 1px solid $btn-primary-hov;
+    transition: all 0.3s;
+  }
+
+  &__header {
+    position: relative;
+  }
+
+  &__name {
+    @include fontMediumInter(1rem, 1.5rem);
+  }
+
+  &__actions {
+    position: absolute;
+    top: -0.025rem;
+    right: -0.025rem;
+    background-color: $bg-primary;
+    border-radius: 10px;
+
+    @include flexRow;
+    align-items: center;
+    gap: 0.1rem;
+    border: 1px solid $border-primary;
+    padding: 0.125rem;
+    box-sizing: border-box;
+
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-2px);
+    transition: opacity 0.15s ease, transform 0.15s ease;
+  }
+}

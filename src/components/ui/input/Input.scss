@@ -1,0 +1,103 @@
+.Input {
+  width: 100%;
+  border-radius: 5px;
+  transition: all 0.2s ease;
+  outline: none;
+  font-family: inherit;
+
+  &::placeholder {
+    opacity: 0.6;
+  }
+
+  &[data-input-size="sm"] {
+    padding: 0.25rem;
+    @include fontMediumInter(0.75rem, 1rem);
+  }
+
+  &[data-input-size="md"] {
+    padding: 0.5rem 1rem;
+    @include fontMediumInter(1rem, 1.25rem);
+  }
+
+  &[data-input-size="lg"] {
+    padding: 0.75rem 1.5rem;
+    @include fontMediumInter(1.5rem, 1.75rem);
+  }
+
+  &[data-variant="transparent"] {
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid;
+
+    &[data-color="primary"] {
+      border-color: $border-primary;
+      color: $text-primary;
+
+      &:focus {
+        $btn-primary: $btn-primary;
+      }
+
+      &::placeholder {
+        color: $btn-secondary
+      }
+    }
+
+    &[data-color="danger"] {
+      border-color: $text-danger;
+      color: $text-primary;
+
+      &:focus {
+        border-color: $btn-danger-hov;
+      }
+
+      &::placeholder {
+        color: $text-danger;
+      }
+    }
+  }
+
+  &[data-variant="outline"] {
+    background-color: $bg-primary;
+    border: 1px solid;
+
+    &[data-color="primary"] {
+      border-color: $border-primary;
+      color: $text-primary;
+
+      &:hover,
+      &:focus {
+        border-color: $btn-primary-hov;
+        box-shadow: 0 0 0 3px $btn-primary-light-hov;
+      }
+
+      &::placeholder {
+        color: $btn-secondary;
+      }
+    }
+
+    &[data-color="danger"] {
+      border-color: $btn-danger;
+      color: $text-danger;
+
+      &:hover,
+      &:focus {
+        border-color: $btn-danger;
+        box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+      }
+
+      &::placeholder {
+        color: $btn-danger;
+      }
+    }
+  }
+
+  &--fullWidth {
+    width: 100%;
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    background-color: $bg-disable;
+  }
+}

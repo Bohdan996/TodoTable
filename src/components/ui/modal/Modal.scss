@@ -1,0 +1,61 @@
+.Modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  @include flexRow;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 0 1rem;
+
+  &__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+
+  &__container {
+    width: 100%;
+    @include flexColumn;
+    gap: 0.75rem;
+    padding: 0.75rem 1rem;
+    background-color: $text-light;
+    z-index: 1001;
+    border-radius: 10px;
+
+    @media (min-width: $desktop-size) {
+      gap: 1rem;
+      padding: 1rem 1.25rem;
+      width: 400px;
+    }
+  }
+
+  &__title {
+    @include fontMediumInter(2rem, 2.5rem);
+    color: $text-primary;
+    text-align: center;
+  }
+
+  &__desk {
+    @include fontRegularInter(1rem, 1.5rem);
+    color: $text-secondary;
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+
+  &__btns {
+    @include flexColumn;
+    gap: 0.5rem;
+
+    @media (min-width: $desktop-size) {
+      @include flexRow;
+      justify-content: flex-end;
+      gap: 0.75rem;
+    }
+  }
+}

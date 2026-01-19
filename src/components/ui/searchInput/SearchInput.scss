@@ -1,0 +1,26 @@
+.SearchInput {
+  position: relative;
+  width: 100%;
+
+  &__icon {
+    position: absolute;
+    left: 0.75rem;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+    color: #6b7280;
+    transition: color 0.2s ease;
+
+    svg {
+      width: 1rem;
+      height: 1rem;
+    }
+  }
+  
+  .Input {
+    padding-left: 2.5rem;
+  }
+}

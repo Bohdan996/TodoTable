@@ -1,0 +1,131 @@
+.Button {
+  @include flexTotalCenter;
+  gap: 0.25rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: 1px solid transparent;
+  min-width: fit-content;
+
+  &[data-variant="fill"] {
+    &[data-color="primary"] {
+      background-color: $btn-primary;
+      color: $text-light;
+      
+      &:hover {
+        background-color: $btn-primary-hov;
+      }
+    }
+
+    &[data-color="secondary"] {
+      background-color: $btn-secondary;
+      color: $text-light;
+      
+      &:hover {
+        background-color: $btn-secondary-hov;
+      }
+    }
+
+    &[data-color="danger"] {
+      background-color: $btn-danger;
+      color: $text-light;
+      
+      &:hover {
+        background-color: $btn-danger-hov;
+      }
+    }
+  }
+
+  &[data-variant="transparent"] {
+    background-color: transparent;
+    
+    &[data-color="primary"] {
+      color: $btn-primary;
+      
+      &:hover {
+        background-color: $btn-primary-light-hov;
+      }
+    }
+
+    &[data-color="secondary"] {
+      color: $btn-secondary;
+      
+      &:hover {
+        background-color: $btn-secondary-light-hov;
+      }
+    }
+
+    &[data-color="danger"] {
+      color: $btn-danger;
+      
+      &:hover {
+        background-color: $btn-danger-light-hov;
+      }
+    }
+  }
+
+  &[data-variant="outline"] {
+    background-color: transparent;
+    
+    &[data-color="primary"] {
+      color: $btn-primary;
+      border-color: $btn-primary;
+      
+      &:hover {
+        background-color: $btn-primary-light-hov;
+        color: $btn-primary;
+      }
+    }
+
+    &[data-color="secondary"] {
+      color: $btn-secondary;
+      border-color: $btn-secondary;
+      
+      &:hover {
+        background-color: $btn-secondary-light-hov;
+        color: $btn-secondary;
+      }
+    }
+
+    &[data-color="danger"] {
+      color: $btn-danger;
+      border-color: $btn-danger;
+      
+      &:hover {
+        background-color: $btn-danger-light-hov;
+        color: $btn-danger;
+      }
+    }
+  }
+
+  &[data-size="sm"] {
+    padding: 0.15rem;
+    @include fontMediumInter(0.75rem, 1rem);
+  }
+
+  &[data-size="md"] {
+    padding: 0.5rem 1rem;
+    @include fontMediumInter(1rem, 1.25rem);
+  }
+
+  &[data-size="lg"] {
+    padding: 0.75rem 1.5rem;
+    @include fontMediumInter(1.5rem, 1.75rem);
+  }
+
+  &[data-content-position="left"] {
+    justify-content: flex-start;
+  }
+
+  &[data-content-position="center"] {
+    justify-content: center;
+  }
+
+  &[data-content-position="right"] {
+    justify-content: flex-end;
+  }
+
+  &--fullWidth {
+    width: 100%;
+  }
+}

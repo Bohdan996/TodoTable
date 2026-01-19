@@ -1,9 +1,20 @@
-$primary-bg: #fff;
-$secondary-bg: red;
+$bg-primary: #fff;
+$bg-disable: #f3f4f6;
 
-$primay-text: #000;
-$secondary-text: rgb(32, 32, 32);
-$light-text: #fff;
-$danger-text: red;
+$text-primary: #2e2e2f;
+$text-secondary: #737377;
+$text-light: #fff;
+$text-danger: #f03737;
+
+$btn-primary: #3b82f6;
+$btn-secondary: #6b7280;
+$btn-danger: #ef4444;
+
+$btn-primary-hov: #2563eb;
+$btn-primary-light-hov: rgba(59, 130, 246, 0.1);
+$btn-secondary-hov: #4b5563;
+$btn-secondary-light-hov: rgba(107, 114, 128, 0.1);
+$btn-danger-hov: #dc2626;
+$btn-danger-light-hov: rgba(239, 68, 68, 0.1);
 
 $border-primary: #e5e7eb;

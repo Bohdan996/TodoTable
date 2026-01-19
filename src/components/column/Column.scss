@@ -1,0 +1,19 @@
+.Column {
+  min-width: 16.5rem;
+  max-width: 16.5rem;
+  padding: 0.25rem;
+  border-radius: 10px;
+  @include flexColumn;
+  gap: 0.5rem;
+  height: fit-content;
+
+  &__body {
+    @include flexColumn;
+    gap: 0.5rem;
+  }
+
+  &__tasks {
+    @include flexColumn;
+    gap: 0.25rem;
+  }
+}

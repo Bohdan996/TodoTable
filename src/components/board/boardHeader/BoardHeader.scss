@@ -1,0 +1,34 @@
+.BoardHeader {
+  width: 100%;
+  padding: 1rem 0;
+  @include flexColumn;
+  border-bottom: 1.5px solid $border-primary;
+  gap: 0.5rem;
+
+  @media (min-width: $desktop-size) {
+    @include flexRow;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+    gap: 0;
+  }
+
+  &__top {
+    @include flexRow;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+
+    @media (min-width: $desktop-size) {
+      justify-content: flex-end;
+      gap: 0.5rem;
+    }
+  }
+
+  &__bottom {
+    @include flexRow;
+    align-items: center;
+    justify-content: flex-start;
+  }
+}

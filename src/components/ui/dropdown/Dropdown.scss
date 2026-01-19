@@ -1,0 +1,35 @@
+.Dropdown {
+  position: relative;
+  display: inline-block;
+
+  &__menu {
+    position: absolute;
+    top: calc(100% + 6px);
+    right: 0;
+    min-width: 160px;
+
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+    padding: 6px;
+    z-index: 100;
+  }
+
+  &__item {
+    width: 100%;
+    padding: 8px 10px;
+    text-align: left;
+    border-radius: 6px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+
+    &:hover {
+      background: #f2f2f2;
+    }
+
+    &.danger {
+      color: #e5484d;
+    }
+  }
+}
