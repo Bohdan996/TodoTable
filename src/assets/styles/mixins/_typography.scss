@@ -1,0 +1,75 @@
+$font-family-Inter: 'Inter', sans-serif;
+
+$small: 300;
+$regular: 400;
+$medium: 500;
+$semibold: 600;
+$bold: 700;
+$extrabold: 800;
+$heavybold: 900;
+
+@mixin fontRegularInter($size: 1rem, $line-height: 1.5rem) {
+  font-family: $font-family-Inter;
+  font-weight: $regular;
+  font-size: $size;
+  line-height: $line-height;
+  letter-spacing: 0;
+}
+
+@mixin fontMediumInter($size: 1rem, $line-height: 1.5rem) {
+  font-family: $font-family-Inter;
+  font-weight: $medium;
+  font-size: $size;
+  line-height: $line-height;
+  letter-spacing: 0;
+}
+
+@mixin fontMediumItalicInter($size: 1rem, $line-height: 1.5rem) {
+  font-family: $font-family-Inter;
+  font-weight: $medium;
+  font-size: $size;
+  font-style: italic;
+  line-height: $line-height;
+  letter-spacing: 0;
+}
+
+@mixin fontSemiBoldInter($size: 1rem, $line-height: 1.5rem) {
+  font-family: $font-family-Inter;
+  font-weight: $semibold;
+  font-size: $size;
+  line-height: $line-height;
+  letter-spacing: 0;
+}
+
+@mixin fontBoldInter($size: 1rem, $line-height: 1.5rem) {
+  font-family: $font-family-Inter;
+  font-weight: $bold;
+  font-size: $size;
+  line-height: $line-height;
+  letter-spacing: 0;
+}
+
+@mixin fontBoldItalicInter($size: 1rem, $line-height: 1.5rem) {
+  font-family: $font-family-Inter;
+  font-weight: $bold;
+  font-size: $size;
+  font-style: italic;
+  line-height: $line-height;
+  letter-spacing: 0;
+}
+
+@mixin fontExtraBoldInter($size: 1rem, $line-height: 1.5rem) {
+  font-family: $font-family-Inter;
+  font-weight: $extrabold;
+  font-size: $size;
+  line-height: $line-height;
+  letter-spacing: 0;
+}
+
+@mixin fontHeavyBoldInter($size: 1rem, $line-height: 1.5rem) {
+  font-family: $font-family-Inter;
+  font-weight: $heavybold;
+  font-size: $size;
+  line-height: $line-height;
+  letter-spacing: 0;
+}

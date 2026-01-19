@@ -1,0 +1,16 @@
+@mixin flexRow {
+  display: flex;
+  flex-direction: row;
+}
+
+@mixin flexColumn {
+  display: flex;
+  flex-direction: column;
+}
+
+@mixin flexTotalCenter {
+  @include flexRow;
+  align-items: center;
+  justify-content: center;
+}
+
