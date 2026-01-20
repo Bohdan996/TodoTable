@@ -1,73 +1,47 @@
-# React + TypeScript + Vite
+Responsive React Kanban Board
+A modern, custom-built task management application. This project features a full Kanban-style workflow including columns, drag-and-drop functionality, and advanced task filtering.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+✨ Key Features
+Full Drag & Drop: Move tasks between columns or reorder columns using @atlaskit/pragmatic-drag-and-drop.
 
-Currently, two official plugins are available:
+Task Management: Create, edit, delete, and toggle completion status for tasks.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Bulk Actions: Select multiple tasks to move or delete them at once.
 
-## React Compiler
+Smart Search: Search tasks by name with visual text highlighting.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Persistent Storage: Your board state is automatically saved to LocalStorage.
 
-## Expanding the ESLint configuration
+Fully Responsive: Designed to work smoothly on mobile and desktop without external UI libraries.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+🏗️ Project Structure
+src/components: Custom UI elements like Task cards, Columns, and Modals.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+src/hooks: Custom logic for LocalStorage and Search.
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+src/context: State management for the board data.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+src/utils: Helpers for drag-and-drop calculations and "smart" search matching.
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+src/styles: Global and component-specific CSS.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+🚀 How to Start
+Follow these steps to get the project running locally:
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+Clone the project
+
+Bash
+
+git clone [your-repository-link]
+cd [project-folder-name]
+Install dependencies
+
+Bash
+
+npm install
+Run the development server
+
+Bash
+
+npm run dev
+Once started, open your browser to: http://localhost:5173/
