@@ -14,6 +14,9 @@ export const useTasksByColumn = (columnId: ColumnId): TaskType[] => {
   
   const searchQuery = useBoardStore((state) => state.searchQuery);
   const tasks = useBoardStore((state) => state.tasks);
+  const columns = useBoardStore((state) => state.columns);
+  const globalTaskFilter = useBoardStore((state) => state.globalTaskFilter);
+  const columnTaskFilters = useBoardStore((state) => state.columnTaskFilters);
 
   return useMemo(
     () => getFilteredTasks(columnId),
@@ -21,9 +24,10 @@ export const useTasksByColumn = (columnId: ColumnId): TaskType[] => {
       getFilteredTasks, 
       columnId, 
       searchQuery, 
-      tasks
+      tasks,
+      columns,
+      globalTaskFilter,
+      columnTaskFilters
     ]
   );
 };
-
-

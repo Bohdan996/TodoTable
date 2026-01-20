@@ -1,10 +1,19 @@
 import { useState } from 'react';
 import Dropdown from '@/components/ui/dropdown';
 import Button from '@/components/ui/button';
-import { EditIcon, TrashIcon } from '@/assets/icons';
+import { 
+  CompleteIcon,
+  EditIcon, 
+  IncompleteIcon, 
+  SelectAllIcon, 
+  TrashIcon 
+} from '@/assets/icons';
 import Modal from '@/components/ui/modal';
 import { useBoardStore } from '@/store/boardStore';
 import ColumnFormModal from '@/components/ui/columnFormModal';
+import Tooltip from '@/components/ui/tooltip';
+import { getContrastTextColor } from '@/utils/colors';
+import { textTrimmer } from '@/utils/texts';
 
 import './ColumnHeader.scss';
 
@@ -12,37 +21,55 @@ type ColumnHeaderProps = {
   title: string;
   color: string;
   columnId: string;
-  tasksCount: number;
 }
 
-export default function ColumnHeader({ title, color, columnId, tasksCount }: ColumnHeaderProps) {
+export default function ColumnHeader({ title, color, columnId }: ColumnHeaderProps) {
   const [isOpenDeleteModal, setDeleteModal] = useState(false);
   const [editColumnId, setEditColumnId] = useState("");
 
   const deleteColumnWithTasks = useBoardStore((s) => s.deleteColumnWithTasks);
+  const selectAllTasksInColumn = useBoardStore((s) => s.selectAllTasksInColumn);
+  const setColumnTaskFilter = useBoardStore((s) => s.setColumnTaskFilter);
+  const columnTaskFilters = useBoardStore((s) => s.columnTaskFilters);
   
+  const currentFilter = columnTaskFilters[columnId] || "all";
+
   const deleteColumn = () => {
     deleteColumnWithTasks(columnId);
     setDeleteModal(false);
   }
 
+  const handleFilterToggle = (filterType: "completed" | "incompleted") => {
+    if (currentFilter === filterType) {
+      setColumnTaskFilter(columnId, "all");
+    } else {
+      setColumnTaskFilter(columnId, filterType);
+    }
+  }
+
   return (
     <div className="ColumnHeader">
       <div className="ColumnHeader__info">
-        <h2 
-          className="ColumnHeader__title"
-          style={{ backgroundColor: color }}
+        <Tooltip
+          content={title}
+          dontShow={title?.length < 20}
         >
-          {title}
-        </h2>
-
-        <p className="ColumnHeader__tasks-count">{tasksCount}</p>
+          <h2 
+            className="ColumnHeader__title"
+            style={{ 
+              backgroundColor: color,
+              color: getContrastTextColor(color)
+            }}
+          >
+            {textTrimmer(title)}
+          </h2>
+        </Tooltip>
       </div>
 
       <Dropdown>
         <Button
           content={<>
-            <EditIcon />
+            <SelectAllIcon />
             Select all
           </>}
           size='sm'
@@ -50,6 +77,7 @@ export default function ColumnHeader({ title, color, columnId, tasksCount }: Col
           variant='transparent'
           contentPosition="left"
           fullWidth
+          action={() => selectAllTasksInColumn(columnId)}
         />
 
         <Button
@@ -63,6 +91,34 @@ export default function ColumnHeader({ title, color, columnId, tasksCount }: Col
           variant='transparent'
           contentPosition="left"
           fullWidth
+        />
+
+        <Button
+          content={<>
+            <CompleteIcon />
+            Show completed
+          </>}
+          action={() => handleFilterToggle("completed")}
+          size='sm'
+          color='secondary'
+          variant='transparent'
+          contentPosition="left"
+          fullWidth
+          activeState={currentFilter === "completed"}
+        />
+
+        <Button
+          content={<>
+            <IncompleteIcon />
+            Show incompleted
+          </>}
+          action={() => handleFilterToggle("incompleted")}
+          size='sm'
+          color='secondary'
+          variant='transparent'
+          contentPosition="left"
+          fullWidth
+          activeState={currentFilter === "incompleted"}
         />
 
         <Button

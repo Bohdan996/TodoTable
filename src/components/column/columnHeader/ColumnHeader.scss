@@ -4,6 +4,7 @@
   justify-content: space-between;
   gap: 0.5rem;
   width: 100%;
+  padding-right: 0.5rem;
 
   &__info {
     @include flexRow;
@@ -19,11 +20,5 @@
     border-radius: 5px;
     box-sizing: border-box;
     white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-
-  &__tasks-count {
-    @include fontSemiBoldInter(1rem, 1.5rem);
   }
 }

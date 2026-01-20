@@ -11,7 +11,6 @@ export type ColumnFormValues = {
 export interface ColumnType {
   id: ColumnId;
   title: string;
-  order: number;
   color: string;
   taskIds: TaskId[];
 }

@@ -5,7 +5,7 @@
   border-bottom: 1.5px solid $border-primary;
   gap: 0.5rem;
 
-  @media (min-width: $desktop-size) {
+  @media (min-width: 1400px) {
     @include flexRow;
     flex-direction: row-reverse;
     align-items: center;
@@ -16,19 +16,45 @@
 
   &__top {
     @include flexRow;
-    align-items: center;
-    justify-content: space-between;
+    justify-content: flex-end;
     gap: 0.5rem;
 
     @media (min-width: $desktop-size) {
-      justify-content: flex-end;
       gap: 0.5rem;
     }
   }
 
   &__bottom {
-    @include flexRow;
-    align-items: center;
+    @include flexColumn;
+    align-items: flex-start;
     justify-content: flex-start;
+    gap: 0.5rem;
+    position: relative;
+
+    @media (min-width: $desktop-size) {
+      @include flexRow;
+      align-items: center;
+    }
+  }
+
+  &__mobile-actions {
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 0;
+
+    @media (min-width: $desktop-size) {
+      display: none;
+    }
+  }
+
+  &__desktop-actions {
+    display: none;
+
+    @media (min-width: $desktop-size) {
+      @include flexRow;
+      align-items: center;
+      gap: 0.5rem;
+    }
   }
 }

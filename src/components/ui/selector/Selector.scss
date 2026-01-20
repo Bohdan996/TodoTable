@@ -1,0 +1,54 @@
+.Selector {
+  position: relative;
+  width: 100%;
+  font-family: inherit;
+
+  &__selected {
+    padding: 0.5rem 1rem;
+    border: 1px solid $border-primary;
+    border-radius: 5px;
+    background-color: $bg-primary;
+    color: $text-primary;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.2s ease;
+    @include fontMediumInter(1rem, 1.25rem);
+
+    &:focus {
+      border-color: $btn-primary-hov;
+      box-shadow: 0 0 0 3px $btn-primary-light-hov;
+    }
+
+    .Selector__arrow {
+      margin-left: 0.5rem;
+      font-size: 0.8rem;
+    }
+  }
+
+  &__options {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    margin-top: 0.25rem;
+    background: $bg-primary;
+    border: 1px solid $border-primary;
+    border-radius: 5px;
+    max-height: 200px;
+    overflow-y: auto;
+    z-index: 10;
+  }
+
+  &__option {
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    color: $text-primary;
+    @include fontRegularInter(1rem, 1.25rem);
+
+    &:hover {
+      background-color: $btn-primary-light-hov;
+    }
+  }
+}

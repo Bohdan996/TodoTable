@@ -37,9 +37,4 @@
     border-radius: 50%;
     border: 1px solid $border-primary;
   }
-
-  &__error {
-    color: $text-danger;
-    @include fontRegularInter(0.75rem, 1rem);
-  }
 }

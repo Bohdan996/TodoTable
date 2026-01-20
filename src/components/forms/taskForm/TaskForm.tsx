@@ -4,14 +4,15 @@ import { useForm } from "react-hook-form";
 import { useBoardStore } from "@/store/boardStore";
 import Button from "@/components/ui/button";
 import { Input } from "@/components/ui/input/Input";
-import type { TaskFormValues } from "@/types/task";
+import type { TaskType } from "@/types/task";
 
 import "./TaskForm.scss";
+import ErrorText from "@/components/ui/errorText";
 
 type TaskFormType = {
   type: 'create' | 'edit';
   columnId: string;
-  defaultValues?: TaskFormValues;
+  defaultValues?: Partial<TaskType>;
   closeAction: () => void;
 };
 
@@ -31,7 +32,7 @@ export default function TaskForm({
     handleSubmit,
     formState: { errors },
     setValue,
-  } = useForm<TaskFormValues>({
+  } = useForm<{ title: string }>({
     mode: "onSubmit",
     defaultValues: {
       title: defaultValues?.title || ""
@@ -44,7 +45,7 @@ export default function TaskForm({
     } else if (type === "edit" && defaultValues) {
       updateTask({
         ...data,
-        taskId: defaultValues?.taskId
+        id: defaultValues?.id
       });
     }
     closeAction();
@@ -52,7 +53,7 @@ export default function TaskForm({
 
   useEffect(() => {
     if (defaultValues) {
-      setValue("title", defaultValues.title);
+      setValue("title", defaultValues.title || "");
     }
   }, [defaultValues, setValue]);
 
@@ -81,13 +82,16 @@ export default function TaskForm({
             minLength: { value: 2, message: "Minimum 2 characters" },
           })}
         />
-        {errors.title && <span className="TaskForm__error">{errors.title.message}</span>}
+        
+        {errors.title?.message && (
+          <ErrorText text={errors.title.message} />
+        )}
       </div>
 
       <Button
         content={type === "create" ? "Create" : "Save"}
         type="submit"
-        variant="fill"
+        variant="outline"
         color="primary"
         fullWidth
       />

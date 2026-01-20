@@ -128,4 +128,20 @@
   &--fullWidth {
     width: 100%;
   }
+
+  &--active {
+    &[data-variant="transparent"] {
+      &[data-color="primary"] {
+        background-color: $btn-primary-light-hov;
+      }
+
+      &[data-color="secondary"] {
+        background-color: $btn-secondary-light-hov;
+      }
+
+      &[data-color="danger"] {
+        background-color: $btn-danger-light-hov;
+      }
+    }
+  }
 }

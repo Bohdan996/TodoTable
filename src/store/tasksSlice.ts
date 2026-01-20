@@ -1,15 +1,17 @@
 import type { ColumnId } from "@/types/column";
-import type { TaskType, TaskId, TaskFormValues } from "@/types/task";
+import type { TaskType, TaskId } from "@/types/task";
 import type { StateCreator } from "zustand";
 
 export type TasksSlice = {
   tasks: TaskType[];
+  selectedTaskIds: TaskId[];
+  isSelectedAllTasks: boolean;
 
   createTask: (columnId: ColumnId, title: string) => TaskId;
-  updateTask: (data: TaskFormValues) => void;
-  updateTaskColumn: (taskId: TaskId, columnId: ColumnId) => void;
+  updateTask: (data: Partial<TaskType>) => void;
   deleteTask: (taskId: TaskId) => void;
   deleteTasks: (taskIds: TaskId[]) => void;
+  changeTaskSelectStatus: (taskId: TaskId) => void;
 };
 
 export const createTasksSlice: StateCreator<
@@ -19,6 +21,8 @@ export const createTasksSlice: StateCreator<
   TasksSlice
 > = (set) => ({
   tasks: [],
+  selectedTaskIds: [],
+  isSelectedAllTasks: false,
 
   createTask: (columnId, title) => {
     const id = crypto.randomUUID();
@@ -31,7 +35,6 @@ export const createTasksSlice: StateCreator<
           title,
           completed: false,
           columnId,
-          order: 0,
         },
       ],
     }));
@@ -39,18 +42,10 @@ export const createTasksSlice: StateCreator<
     return id;
   },
 
-  updateTask: (data: TaskFormValues) =>
+  updateTask: (data: Partial<TaskType>) =>
     set((state) => ({
       tasks: state.tasks.map((t) =>
-        t.id === data.taskId ? { ...t, ...data } : t
-      ),
-    })),
-
-
-  updateTaskColumn: (taskId, columnId) =>
-    set((state) => ({
-      tasks: state.tasks.map((t) =>
-        t.id === taskId ? { ...t, columnId } : t
+        t.id === data.id ? { ...t, ...data } : t
       ),
     })),
 
@@ -62,5 +57,13 @@ export const createTasksSlice: StateCreator<
   deleteTasks: (taskIds) =>
     set((state) => ({
       tasks: state.tasks.filter((t) => !taskIds.includes(t.id)),
+    })),
+
+  changeTaskSelectStatus: (taskId) =>
+    set((state) => ({
+      selectedTaskIds: state.selectedTaskIds?.includes(taskId)
+      ? state.selectedTaskIds?.filter((id) => id !== taskId)
+      : [...state.selectedTaskIds, taskId],
+      isSelectedAllTasks: false,
     })),
 });

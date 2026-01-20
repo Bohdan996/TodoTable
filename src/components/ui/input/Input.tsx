@@ -19,6 +19,7 @@ export const Input: React.FC<InputProps> = ({
 }) => {
   return (
     <input
+      autoFocus
       className={clsx('Input', { 'Input--fullWidth': fullWidth })}
       data-variant={variant}
       data-color={color}

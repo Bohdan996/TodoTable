@@ -5,9 +5,9 @@ import { useBoardStore } from "@/store/boardStore";
 import Button from "@/components/ui/button";
 import { Input } from "@/components/ui/input/Input";
 import type { ColumnFormValues } from "@/types/column";
+import ErrorText from "@/components/ui/errorText";
 
 import "./ColumnForm.scss";
-
 
 type ColumnFormType = {
   type: "create" | "edit";
@@ -74,10 +74,8 @@ export default function ColumnForm({
           })}
         />
 
-        {errors.title && (
-          <span className="ColumnForm__error">
-            {errors.title.message}
-          </span>
+        {errors.title?.message && (
+          <ErrorText text={errors.title.message} />
         )}
       </div>
 

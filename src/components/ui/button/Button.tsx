@@ -5,13 +5,14 @@ import './Button.scss';
 
 type ButtonProps = {
   content: React.ReactNode;
-  action?: () => void;
+  action?: (e: React.MouseEvent<HTMLButtonElement>) => void;
   type?: 'button' | 'submit';
   fullWidth?: boolean;
   variant?: "fill" | "transparent" | "outline";
   color?: "primary" | "secondary" | "danger";
   size?: "sm" | "md" | "lg";
   contentPosition?: "left" | "center" | "right"
+  activeState?: boolean
 };
 
 export default function Button({
@@ -22,11 +23,15 @@ export default function Button({
   variant = 'transparent',
   color = 'primary',
   size = 'md',
-  contentPosition = 'center'
+  contentPosition = 'center',
+  activeState = false
 }: ButtonProps) {
   return (
     <button 
-      className={clsx('Button', { 'Button--fullWidth': fullWidth })}
+      className={clsx('Button', { 
+        'Button--fullWidth': fullWidth,
+        'Button--active': activeState,
+       })}
       data-variant={variant}
       data-color={color}
       data-size={size}

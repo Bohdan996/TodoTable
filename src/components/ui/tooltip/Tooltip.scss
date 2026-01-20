@@ -1,0 +1,81 @@
+.Tooltip {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  width: 100%;
+  max-width: fit-content;
+  z-index: 2;
+
+  &__content {
+    display: none;
+    position: fixed;
+    background-color: $text-primary;
+    color: $bg-primary;
+    padding: 6px 10px;
+    border-radius: 6px;
+
+    white-space: nowrap;
+    @include fontRegularInter(0.65rem, 1rem);
+
+    opacity: 1;
+    pointer-events: none;
+    transition: opacity 0.15s ease;
+
+    z-index: 9999;
+
+    &--hidden {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    &--disable {
+      display: none;
+    }
+
+    @media (min-width: $desktop-size) {
+      display: block;
+    }
+  }
+
+  &__arrow {
+    position: absolute;
+    width: 0;
+    height: 0;
+
+    &--top {
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      border-left: 6px solid transparent;
+      border-right: 6px solid transparent;
+      border-top: 6px solid $text-primary;
+    }
+
+    &--bottom {
+      bottom: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      border-left: 6px solid transparent;
+      border-right: 6px solid transparent;
+      border-bottom: 6px solid $text-primary;
+    }
+
+    &--left {
+      left: 100%;
+      top: 50%;
+      transform: translateY(-50%);
+      border-top: 6px solid transparent;
+      border-bottom: 6px solid transparent;
+      border-left: 6px solid $text-primary;
+    }
+
+    &--right {
+      right: 100%;
+      top: 50%;
+      transform: translateY(-50%);
+      border-top: 6px solid transparent;
+      border-bottom: 6px solid transparent;
+      border-right: 6px solid $text-primary;
+    }
+  }
+}
