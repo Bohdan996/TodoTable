@@ -1,47 +1,33 @@
-Responsive React Kanban Board
-A modern, custom-built task management application. This project features a full Kanban-style workflow including columns, drag-and-drop functionality, and advanced task filtering.
+🧩 Responsive React Kanban Board
 
-✨ Key Features
-Full Drag & Drop: Move tasks between columns or reorder columns using @atlaskit/pragmatic-drag-and-drop.
+A modern, fully responsive Kanban-style task management application built with React.
+This project demonstrates a custom drag-and-drop workflow, advanced task filtering, and clean state management — without relying on external UI libraries.
 
-Task Management: Create, edit, delete, and toggle completion status for tasks.
+🚀 Getting Started
 
-Bulk Actions: Select multiple tasks to move or delete them at once.
+1️⃣ Clone the repository
 
-Smart Search: Search tasks by name with visual text highlighting.
+git clone https://github.com/your-username/your-repository-name.git
+cd your-repository-name
 
-Persistent Storage: Your board state is automatically saved to LocalStorage.
-
-Fully Responsive: Designed to work smoothly on mobile and desktop without external UI libraries.
-
-🏗️ Project Structure
-src/components: Custom UI elements like Task cards, Columns, and Modals.
-
-src/hooks: Custom logic for LocalStorage and Search.
-
-src/context: State management for the board data.
-
-src/utils: Helpers for drag-and-drop calculations and "smart" search matching.
-
-src/styles: Global and component-specific CSS.
-
-🚀 How to Start
-Follow these steps to get the project running locally:
-
-Clone the project
-
-Bash
-
-git clone [your-repository-link]
-cd [project-folder-name]
-Install dependencies
-
-Bash
+2️⃣ Install dependencies
 
 npm install
-Run the development server
 
-Bash
+3️⃣ Run the development server
 
 npm run dev
-Once started, open your browser to: http://localhost:5173/
+
+Open your browser at:
+
+http://localhost:5173
+
+
+🏗️ Project Structure
+
+src/
+├─ components/   # Task cards, columns, modals, UI elements
+├─ hooks/        # Custom hooks (LocalStorage, search, etc.)
+├─ context/      # Board state management
+├─ utils/        # Drag-and-drop helpers & search logic
+├─ styles/       # Global and component-level styles
