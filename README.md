@@ -43,5 +43,3 @@ src/
   store/        # Columns, tasks, filter & search logic
   types/        # Column and Task types
 ```
-
-> ⚠️ **Note:** Drag-and-drop functionality does not work on mobile devices yet.
