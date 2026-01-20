@@ -27,6 +27,9 @@ Open your browser at:
 ```
 http://localhost:5173/
 ```
+## 🌐 Live Demo
+
+**[View Live Demo](https://todo-table-five.vercel.app/)**
 
 ---
 
@@ -40,3 +43,5 @@ src/
   store/        # Columns, tasks, filter & search logic
   types/        # Column and Task types
 ```
+
+> ⚠️ **Note:** Drag-and-drop functionality does not work on mobile devices yet.
