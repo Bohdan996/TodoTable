@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState, memo } from 'react';
 
 import ColumnHeader from './columnHeader';
 import type { ColumnType } from '@/types/column';
@@ -21,7 +21,7 @@ type ColumnProps = {
   item: ColumnType;
 }
 
-export default function Column({ item }: ColumnProps) {
+function Column({ item }: ColumnProps) {
   const [isOpenAddTaskModal, setOpenAddTaskModal] = useState(false);
   const [isDragging, setIsDragging] = useState(false);
   const [closestEdge, setClosestEdge] = useState<'left' | 'right' | null>(null);
@@ -193,3 +193,5 @@ export default function Column({ item }: ColumnProps) {
     </li>
   )
 }
+
+export default memo(Column);

@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState, memo } from 'react';
 import clsx from 'clsx';
 
 import TaskForm from '../forms/taskForm';
@@ -20,7 +20,7 @@ type TaskProps = {
   columnId: string;
 }
 
-export default function Task({ item, columnId }: TaskProps) {
+function Task({ item, columnId }: TaskProps) {
   const { id, title, completed } = item;
   const [isOpenDeleteModal, setOpenDeleteModal] = useState(false);
   const [openEditForm, setOpenEditForm] = useState(false);
@@ -200,3 +200,5 @@ export default function Task({ item, columnId }: TaskProps) {
     </>
   )
 }
+
+export default memo(Task);
