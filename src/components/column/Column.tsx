@@ -194,4 +194,4 @@ function Column({ item }: ColumnProps) {
   )
 }
 
-export default memo(Column);
+export default Column;
